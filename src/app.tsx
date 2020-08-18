@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { LoginPage } from "./login";
-import { ListPage } from "./list";
-import { DetailPage } from "./detail";
+import { ListPage } from "./membersList";
+import { MemberCard } from "./memberCard";
 
 export const App = () => {
   return (
@@ -15,7 +15,7 @@ export const App = () => {
           <ListPage />
         </Route>
         <Route path="/detail/:id">
-          <DetailPage />
+          <MemberCard />
         </Route>
       </Switch>
     </Router>

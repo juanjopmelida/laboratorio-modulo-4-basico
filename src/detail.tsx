@@ -1,13 +1,7 @@
-import React from "react";
+/* import React from "react";
 import { Link, useParams } from "react-router-dom";
 
-interface MemberDetailEntity {
-  id: string;
-  login: string;
-  name: string;
-  company: string;
-  bio: string;
-}
+
 
 const createDefaultMemberDetail = () => ({
   id: "",
@@ -41,3 +35,4 @@ export const DetailPage: React.FC = () => {
     </>
   );
 };
+ */
