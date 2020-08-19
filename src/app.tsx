@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { LoginPage } from "./login";
-import { ListPage } from "./membersList";
-import { MemberCard } from "./memberCard";
+import { LoginPage } from "./components/Login/login";
+import { ListPage } from "./components/MemberList/membersList";
+import { MemberCard } from "./components/MemberCard/memberCard";
 
 export const App = () => {
   return (

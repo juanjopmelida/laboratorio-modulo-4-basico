@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { MemberDetailEntity } from "./model";
-import {ImageAvatars} from "./memberAvatar"
+import { MemberDetailEntity } from "../../model";
+import {ImageAvatars} from "../MemberAvatar/memberAvatar"
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
