@@ -30,7 +30,7 @@ const StyledTableRow = withStyles((theme) => ({
     },
     "&:hover": {
       backgroundColor: theme.palette.action.focus,
-    }
+    },
   },
 }))(TableRow);
 
@@ -47,6 +47,22 @@ export const ListPage: React.FC = () => {
   const [debounceFilter] = useDebounce(organizationFilter, 1000);
   const [members, setMembers] = React.useState<MemberEntity[]>([]);
   const classes = useStyles();
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+  const emptyRows =
+    rowsPerPage - Math.min(rowsPerPage, members.length - page * rowsPerPage);
 
   React.useEffect(() => {
     fetch(`https://api.github.com/orgs/${organizationFilter}/members`)
@@ -71,22 +87,35 @@ export const ListPage: React.FC = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {members.map((member) => (
-              <StyledTableRow key={member.id}>
-                <StyledTabelCell>
-                  <ImageAvatars
-                    login={member.login}
-                    avatar_url={member.avatar_url}
-                  ></ImageAvatars>
-                </StyledTabelCell>
-                <StyledTabelCell component="th" scope="member">
-                  <Link to={generatePath("/detail/:id", { id: member.login })}>
+            {members
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((member, index) => (
+                <TableRow key={member.id}>
+                  <StyledTabelCell>
+                    <Link
+                      to={generatePath("/detail/:id", { id: member.login })}
+                    >
+                      <ImageAvatars
+                        login={member.login}
+                        avatar_url={member.avatar_url}
+                      ></ImageAvatars>
+                    </Link>
+                  </StyledTabelCell>
+                  <StyledTabelCell component="th" scope="member">
                     {member.login}
-                  </Link>
-                </StyledTabelCell>
-              </StyledTableRow>
-            ))}
+                  </StyledTabelCell>
+                </TableRow>
+              ))}
           </TableBody>
+          <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={members.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
         </Table>
       </TableContainer>
     </>

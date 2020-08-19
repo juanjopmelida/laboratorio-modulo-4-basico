@@ -1,7 +1,8 @@
 export interface MemberEntity {
     avatar_url:string;
     id:string;
-    login:string
+    login:string;
+    name: string;
 }
 
 export interface MemberDetailEntity {
