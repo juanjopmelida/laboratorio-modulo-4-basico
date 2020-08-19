@@ -90,7 +90,7 @@ export const ListPage: React.FC = () => {
             {members
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((member, index) => (
-                <TableRow key={member.id}>
+                <StyledTableRow key={member.id}>
                   <StyledTabelCell>
                     <Link
                       to={generatePath("/detail/:id", { id: member.login })}
@@ -104,7 +104,7 @@ export const ListPage: React.FC = () => {
                   <StyledTabelCell component="th" scope="member">
                     {member.login}
                   </StyledTabelCell>
-                </TableRow>
+                </StyledTableRow>
               ))}
           </TableBody>
           <TablePagination
