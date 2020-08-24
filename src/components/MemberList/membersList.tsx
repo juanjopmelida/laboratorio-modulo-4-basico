@@ -13,6 +13,7 @@ import {
   Paper,
   TablePagination,
   Box,
+  FormHelperText,
 } from "@material-ui/core";
 
 import { StyledTabelCell, StyledTableRow } from "./membersList.styles";
@@ -21,6 +22,11 @@ const useStyles = makeStyles({
   table: {
     minWidth: 700,
   },
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    alignContent: "center"
+  }
 });
 
 export const ListPage: React.FC = () => {
@@ -55,8 +61,8 @@ export const ListPage: React.FC = () => {
   }, [debounceFilter]);
 
   return (
-    <>
-      <Box mx="auto">
+    <div className={classes.main}>
+      <Box mx="auto" marginBottom="20px">
         <input
           value={organizationFilter}
           onChange={(e) => setorganizationFilter(e.target.value)}
@@ -104,6 +110,6 @@ export const ListPage: React.FC = () => {
           </Table>
         </TableContainer>
       </Box>
-    </>
+    </div>
   );
 };
