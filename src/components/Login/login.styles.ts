@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import { styled } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 
-export { StyledButton, StyledTextField, StyledColumnBox, StyledRowBox};
+export { StyledButton, StyledTextField, StyledColumnBox, StyledRowBox, StyledLabel};
 
 const StyledButton = styled(Button)({
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -18,6 +18,7 @@ const StyledButton = styled(Button)({
 
 const StyledTextField = styled(TextField)({
   margin: "0 10px",
+  fontSize: 10
 });
 
 const StyledColumnBox = styled(Box)({
@@ -33,4 +34,9 @@ const StyledRowBox = styled(Box)({
   flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
+  marginTop: "5px",
 });
+
+const StyledLabel = styled(Box)({
+  width: "6rem",
+})

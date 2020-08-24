@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import Box from "@material-ui/core/Box";
-import {StyledButton, StyledTextField, StyledColumnBox, StyledRowBox } from "./login.styles"
+import {StyledButton, StyledTextField, StyledColumnBox, StyledRowBox, StyledLabel } from "./login.styles"
 
 export const LoginPage: React.FC = () => {
   const history = useHistory();
@@ -22,14 +21,14 @@ export const LoginPage: React.FC = () => {
       <h2>Hello, enter your identification</h2>
       <form onSubmit={handleNavigation}>
         <StyledRowBox>
-          <div>Username: </div>
+          <StyledLabel>Username: </StyledLabel>
           <StyledTextField
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </StyledRowBox>
         <StyledRowBox>
-          <Box>Password: </Box>
+          <StyledLabel>Password: </StyledLabel>
           <StyledTextField
             type="password"
             value={password}

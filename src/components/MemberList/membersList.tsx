@@ -21,6 +21,7 @@ const StyledTabelCell = withStyles((theme) => ({
   },
   body: {
     fontSize: 14,
+    padding: 2,
   },
 }))(TableCell);
 
@@ -31,7 +32,7 @@ const StyledTableRow = withStyles((theme) => ({
     },
     "&:hover": {
       backgroundColor: theme.palette.action.focus,
-    },
+    }
   },
 }))(TableRow);
 
@@ -65,9 +66,6 @@ export const ListPage: React.FC = () => {
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, members.length - page * rowsPerPage);
 
-  const theme = {
-      spacing: 8,
-    }
 
   React.useEffect(() => {
     fetch(`https://api.github.com/orgs/${organizationFilter}/members`)
@@ -78,13 +76,13 @@ export const ListPage: React.FC = () => {
 
   return (
     <>
-    <Box mx="auto" mb="100">
+    <Box mx="auto">
          <input
           value={organizationFilter}
           onChange={(e) => setorganizationFilter(e.target.value)}
         />
     </Box>
-    <Box width="40%" height="70%" mx="auto" m={2}>
+    <Box width="40%" mx="auto">
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
@@ -115,7 +113,7 @@ export const ListPage: React.FC = () => {
                 ))}
             </TableBody>
             <TablePagination
-              rowsPerPageOptions={[5, 10, 25]}
+              rowsPerPageOptions={[5, 10]}
               component="div"
               count={members.length}
               rowsPerPage={rowsPerPage}

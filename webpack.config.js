@@ -22,6 +22,11 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/i,
+        exclude:/node_modules/,
+        loader: ["css-loader"]
+      },
+      {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader",
