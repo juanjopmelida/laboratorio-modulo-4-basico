@@ -1,15 +1,16 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { MemberDetailEntity } from "../../model";
-import {ImageAvatars} from "../MemberAvatar/memberAvatar"
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import { styled } from "@material-ui/core/styles";
+import { ImageAvatars } from "../MemberAvatar/memberAvatar";
+import {
+  makeStyles,
+  Card,
+  CardContent,
+  Typography,
+  Button,
+  styled,
+} from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-
 
 const StyledButton = styled(Button)({
   background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
@@ -21,29 +22,29 @@ const StyledButton = styled(Button)({
   width: "200px",
   padding: "0 30px",
   marginTop: "15px",
-  margin: "auto"
+  margin: "auto",
 });
 
 const useStyles = makeStyles({
   root: {
     width: 345,
-    margin: "auto"
-  }
+    margin: "auto",
+  },
 });
 
 const createDefaultMemberDetail = () => ({
-    id: "",
-    avatar_url: "",
-    login: "",
-    name: "",
-    company: "",
-    bio: "",
+  id: "",
+  avatar_url: "",
+  login: "",
+  name: "",
+  company: "",
+  bio: "",
 });
 
 export const MemberCard: React.FC = () => {
   const classes = useStyles();
   const [member, setMember] = React.useState<MemberDetailEntity>(
-    createDefaultMemberDetail()
+    createDefaultMemberDetail(),
   );
   const { id } = useParams();
   const history = useHistory();
@@ -73,7 +74,9 @@ export const MemberCard: React.FC = () => {
           </Typography>
         </CardContent>
       </Card>
-      <StyledButton type="button" onClick={()=> history.goBack()} >back</StyledButton>
+      <StyledButton type="button" onClick={() => history.goBack()}>
+        back
+      </StyledButton>
     </>
   );
 };
