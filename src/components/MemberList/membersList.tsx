@@ -97,7 +97,11 @@ export const ListPage: React.FC = () => {
                     </Link>
                   </StyledTabelCell>
                   <StyledTabelCell component="th" scope="member">
-                    {member.login}
+                    <Link
+                        to={generatePath("/detail/:id", { id: member.login })}
+                      >
+                      {member.login}
+                    </Link>
                   </StyledTabelCell>
                 </StyledTableRow>
               ))}
