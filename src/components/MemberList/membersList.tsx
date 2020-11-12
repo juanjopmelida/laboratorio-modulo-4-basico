@@ -66,13 +66,13 @@ export const ListPage: React.FC = () => {
   const apiInfo = (
     <div>
       <div className={classes.apiInfo}>
-        There's no members or company doesn't exist
+        This Company hasn´t members
       </div>
     </div>
   );
 
   const membersTable = (
-    <Box width="40%" mx="auto">
+    <Box width="80%" mx="auto">
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
