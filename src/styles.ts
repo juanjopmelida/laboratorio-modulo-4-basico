@@ -6,7 +6,7 @@ export const root = css`
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
-  background-color: #f28025;
+  background-color: #508f00;
   color: #ebebeb;
   font-family: Helvetica, sans-serif
 `;
