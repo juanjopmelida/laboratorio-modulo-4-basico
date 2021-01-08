@@ -10,7 +10,7 @@
     "start:dev": "webpack-dev-server --mode development --open",
     "build": "rimraf dist && webpack --mode development"
   },
-  "author": "",
+  "author": "juanjopmelida",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
